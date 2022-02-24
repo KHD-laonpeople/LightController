@@ -14,7 +14,7 @@ namespace LightControl
     public partial class connectState : Form
     {
         public string receiveData;
-                                                      //채널 1  2  3  4  5  6  7  8  9  10 11 12 13 14 15 16 각 채널의 값 0 ~ 255(00 ~ FF) 설정, 초기값 모든채널 0
+        //초기값 모든채널 0,                           채널 1     2     3     4     5     6      7     8     9    10    11    12    13    14    15    16 각 채널의 값 0 ~ 255(00 ~ FF) 설정
         public byte[] sendData = { 0x01, 0x00, 0x10, 0x29, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x04 };
         public connectState()
         {
@@ -23,7 +23,7 @@ namespace LightControl
             lightKind.Items.Add("Off");
             lightKind.Items.Add("Ring");
             lightKind.Items.Add("Bar");
-            lightKind.Items.Add("Coxaml");
+            lightKind.Items.Add("Coaxial");
         }
 
         //Port Connect
@@ -49,7 +49,6 @@ namespace LightControl
                 portNumber.Enabled = true;
             }
         }
-
         //데이터 수신
         private void SerialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
@@ -68,7 +67,6 @@ namespace LightControl
             serialPort1.Write(sendData,0,sendData.Length);
             foreach(byte data in sendData) dataShowBox.Text += data.ToString("X2") + " ";
             dataShowBox.Text += "\n";
-
         }
         private byte[] SendLightData(byte[] sendData, string light)
         {
@@ -84,7 +82,7 @@ namespace LightControl
                 case "Bar":
                     sendData[5] = value;
                     break;
-                case "Coxaml":
+                case "Coaxial":
                     sendData[7] = value;
                     break;
                 case "Off":
@@ -93,7 +91,6 @@ namespace LightControl
                     sendData[7] = 0;
                     break;
             }
-
             return sendData;
         }
     }
