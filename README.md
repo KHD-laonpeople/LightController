@@ -11,4 +11,4 @@
 | Program | Version | Link |
 |---|---|---|
 |Visual Studio|2022|https://visualstudio.microsoft.com/ko/vs/whatsnew/|
-|Light Controller|L-LIGHT Company LPW1624S|http://www.l-light.co.kr/|
+|Light Controller|L-LIGHT Company LPW1624S|http://www.l-light.co.kr/bbs/board.php?bo_table=product02&wr_id=7|
